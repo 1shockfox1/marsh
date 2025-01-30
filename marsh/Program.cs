@@ -40,14 +40,14 @@ class Marsh<T> : ICloneable, IComparable
     public object Clone() => new Marsh<T>(Nach, Kon, Nomer);
     public int CompareTo(object? obj)
     {
-        if (obj is Marsh<int>)
-        {
-            Marsh<int> temp = (obj as Marsh<int>)!;
-            return Kon!.ToString()!.CompareTo(temp.Kon);
-        }
-        else if (obj is Marsh<string>)
+         if (obj is Marsh<string>)
         {
             Marsh<string> temp = (obj as Marsh<string>)!;
+            return Kon!.ToString()!.CompareTo(temp.Kon);
+        }
+        else if (obj is Marsh<int>)
+        {
+            Marsh<int> temp = (obj as Marsh<int>)!;
             return Kon!.ToString()!.CompareTo(temp.Kon);
         }
         else throw new ArgumentException("Некорректное значение параметра");
